@@ -1,16 +1,31 @@
 package com.unicomer.productstore.rest.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Productos disponibles por codigo de pais.")
 public class ItemsModel {
+    @ApiModelProperty(dataType = "Log", example = "1", notes = "ID de la tienda.", required = true, position = 1)
     private Long storeId;
+    @ApiModelProperty(dataType = "String", example = "CRC PROCERES", notes = "Nombre de la tienda.", required = true, position = 2)
     private String store;
+    @ApiModelProperty(dataType = "Integer", example = "500597", notes = "SKU del producto", required = true, position = 3)
     private Integer sku;
+    @ApiModelProperty(dataType = "String", example = "{owner}", notes = "Propietario", required = true, position = 4)
     private String owner;
+    @ApiModelProperty(dataType = "String", example = "305", notes = "Departamento del producto", required = true, position = 5)
     private String department;
+    @ApiModelProperty(dataType = "String", example = "444666611111", notes = "UPC del producto", required = true, position = 6)
     private String upc;
+    @ApiModelProperty(dataType = "String", example = "REFRI 12P SILVER SILVER M", notes = "Descripcion del producto", required = true, position = 7)
     private String description;
+    @ApiModelProperty(dataType = "String", example = "000009", notes = "Marca del producto", required = true, position = 8)
     private String brand;
+    @ApiModelProperty(dataType = "String", example = "TT32H500JS8", notes = "Estilo del producto", required = true, position = 9)
     private String style;
+    @ApiModelProperty(dataType = "String", example = "#ff0412", notes = "Color del producto", required = true, position = 10)
     private String color;
+    @ApiModelProperty(dataType = "String", example = "4", notes = "Disponible", required = true, position = 11)
     private String onHand;
 
     public ItemsModel() {

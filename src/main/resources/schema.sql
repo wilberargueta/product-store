@@ -110,7 +110,7 @@ VALUES
         '444666611111',
         'REFRI 12P SILVER SILVER M',
         '000009',
-        'TT32H500JS8 ',
+        'TT32H500JS8',
         '   ',
         1,
              1,

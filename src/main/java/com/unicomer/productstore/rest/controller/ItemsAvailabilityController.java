@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/v1/items-availability")
+@Api(value = "Items-Availability-Controller", description = "Endpoint para consultar de productos")
 public class ItemsAvailabilityController {
 
     private final ItemsAvailabilityServices itemsAvailabilityServices;
@@ -27,8 +31,10 @@ public class ItemsAvailabilityController {
         this.itemsAvailabilityServices = itemsAvailabilityServices;
     }
 
-    @PostMapping(path = "/query")
-    public ResponseEntity<ResponseObject<ItemsAvailabilityModel>> query(@RequestBody Map<String, String> queryMap) {
+    @PostMapping(path = "/query", consumes = "application/json", produces = "application/json")
+    @ApiOperation(notes = "Servicio de consulta de productos", value = "", httpMethod = "POST", consumes = "application/json", produces = "application/json", tags = "getItemsAvailabilityQuery")
+    public ResponseEntity<ResponseObject<ItemsAvailabilityModel>> getItemsAvailabilityQuery(
+            @RequestBody Map<String, String> queryMap) {
         ResponseObject<ItemsAvailabilityModel> response = new ResponseObject<>();
         response.setOK(true);
         response.setItemAvailability(this.itemsAvailabilityServices.findByQueryMap(queryMap));

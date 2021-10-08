@@ -1,5 +1,8 @@
 package com.unicomer.productstore.rest.model;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(description = "Objeto Response.")
 public class ResponseObject<C> {
 
     private boolean OK;
